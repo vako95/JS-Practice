@@ -1,0 +1,41 @@
+[1] 
+<ul class="list">
+  <li>cofee</li>
+  <li>banan</li>
+</ul>
+
+<button onclick="myFunction()">Click</button>
+<script>
+  
+  function myFunction(){
+    const node = document.createElement('li')
+    const text = document.createTextNode('tea')
+    node.appendChild(text)
+    document.querySelector('.list').appendChild(node)
+  }
+
+ 
+</script>
+
+[2]
+    const user = {name:"Vaqif"};
+    const detail = {surname:"Huseynov", age:26};
+
+    const obr = Object.assign({},user,detail);
+    console.log(obr);
+
+    const newob = Object.assign(user, {age:3})
+    
+    console.assert(newob.age === 30, "Правильно")
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  
+[]  

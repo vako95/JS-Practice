@@ -34,14 +34,3 @@
 
 
 
-// adoptNode() Перенос Строки
-const fr = '<p class="vaq">Vaqif</p>';
-
-let parser = new DOMParser();
-let xml = parser.parseFromString(fr, 'text/html');
-
-let namMade = xml.querySelector(".vaq"); // ← правильно ищем по классу
-
-let adoptde = document.adoptNode(namMade); // ← передаём DOM-узел
-
-document.querySelector(".vaq").appendChild(adoptde); // ← вставляем по id

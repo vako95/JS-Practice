@@ -4,12 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
- 
 </head>
 <body>
-  
-  <p class="vaq"></p>
-  <script src="assets/js/main.js"></script>
+  <div id="grandparent">
+    <div id="parent">
+      <button id="child">Нажми меня</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("grandparent").addEventListener("click", () => {
+  console.log("👴 Grandparent получил клик");
+});
+
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("👨 Parent получил клик");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("👶 Child получил клик");
+});
+
+  </script>
   <script src="assets/js/Adventlistener.js"></script>
 </body>
 </html>
