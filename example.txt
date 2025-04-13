@@ -27,7 +27,17 @@
     const newob = Object.assign(user, {age:3})
     
     console.assert(newob.age === 30, "Правильно")
-[]  
+[3]
+<div id="myDIV">
+  <p>I am a paragraph</p>
+  <p>I am a paragraph</p>
+  <p>I am a paragraph</p>
+</div>
+
+<script>
+const collection = document.getElementById("myDIV").children;
+collection[1].style.backgroundColor = "yellow";
+</script>  
 []  
 []  
 []  

@@ -6,26 +6,34 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="grandparent">
-    <div id="parent">
-      <button id="child">Нажми меня</button>
-    </div>
-  </div>
+<button id="start">Отслеживать</button>
+<button id="stop">Стоп</button>
+  
+<p id="sir">Широта:</p>
+<p id="dol">Долгота:</p>
 
-  <script>
-    document.getElementById("grandparent").addEventListener("click", () => {
-  console.log("👴 Grandparent получил клик");
-});
+<script>
+  let watchId;
+ 
+  const stop = document.getElementById('stop');
+  const sir = document.getElementById('sir');
+  const dol = document.getElementById('dol');
 
-document.getElementById("parent").addEventListener("click", () => {
-  console.log("👨 Parent получил клик");
-});
+  document.getElementById('start').onclick = function (){
+     watchId = navigator.geolocation.watchPosition(function(position){
+      let latitude = position.coords.latitude
+      let longitude = position.coords.latitude
+      sir.textContent = "Широта: " + latitude
+      dol.textContent = "Широта: " + longitude
+     })
+    }
 
-document.getElementById("child").addEventListener("click", () => {
-  console.log("👶 Child получил клик");
-});
+     document.getElementById('stop').onclick = function (){
+      navigator.geolocation.clearWatch(watchId)
+      sir.innerHTML = "Широта: ";
+      dol.innerHTML = "Долгота: "
+  }
 
-  </script>
-  <script src="assets/js/Adventlistener.js"></script>
+</script>
 </body>
 </html>
