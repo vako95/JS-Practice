@@ -1,36 +1,49 @@
+// let x = 20;
+// let y = 35;
 
-// const x = 1;
-// x = 2
-
-// console.log(x);
-
-
-// const x = {id:1};
-// x.id = 2;
-
-// console.log(typeof x);
-// ----------------------
-
-// let x = "hello";
+// let d = 20 - 35
+// console.log(Math.abs(d))
 
 
-// String.prototype.vaqif =  function(v) {
+
+// const person = {
+//     firstName: "John",
+//     lastName: "Doe",
+//     age: 30
+//   };
+  
+//   const contactInfo = {
+//     email: "john.doe@example.com",
+//     phone: "+123456789"
+//   };
+
+// let profile = Object.assign({}, person, contactInfo)
+
+
+// class User{
+//     constructor(username, email){
+//         this.username = username;
+//         this.email = email;
+//     }
+
+//     info(){
+//         return `Пользователь: ${this.username}, Email: ${this.email}`
+//     }
+// }
+
+// class Admin extends User{
+//     constructor(username, email,role ){
+//         super(username,email)
+//         this.role = role;
+//     }
+
+//     info(){
+//         return `Админ: ${this.username}, Email: ${this.email}, Роль: ${this.role}`
+//     }
 
 // }
 
-// x.vaqif
-// ----------------------
-// let a = 4;
-// let b = 5;
-
-// let result = a < b ? "a больше b" : "a не больше b";
-// console.log(result); // "a больше b"
-
-// let x = 0xFFn;
-// let y = 1n;
-
-// console.log( x + y)
-
-
-
-
+// const user = new User("Vako", "vako95@mail.ru");
+// const admin = new Admin("Vako", "vako95@mail.ru", "admin");
+// console.log(user.info());
+// console.log(admin.info());

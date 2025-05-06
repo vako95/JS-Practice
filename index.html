@@ -3,37 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Комментарии</title>
 </head>
 <body>
-<button id="start">Отслеживать</button>
-<button id="stop">Стоп</button>
-  
-<p id="sir">Широта:</p>
-<p id="dol">Долгота:</p>
 
-<script>
-  let watchId;
- 
-  const stop = document.getElementById('stop');
-  const sir = document.getElementById('sir');
-  const dol = document.getElementById('dol');
+  <div class="comments">
+    <div class="comment">
+      <p>Комментарий 1</p>
+      <button class="reply-btn">Ответить</button>
+      <div class="reply-form" style="display: none;">
+        
+        <textarea placeholder="Введите ваш ответ"></textarea>
+        <button class="submit-reply">Отправить</button>
+      </div>
+    </div>
+    <div class="comment">
+      <p>Комментарий 2</p>
+      <button class="reply-btn">Ответить</button>
+      <div class="reply-form" style="display: none;">
+        <textarea placeholder="Введите ваш ответ"></textarea>
+        <button class="submit-reply">Отправить</button>
+      </div>
+    </div>
+    <div class="comment">
+      <p>Комментарий 3</p>
+      <button class="reply-btn">Ответить</button>
+      <div class="reply-form" style="display: none;">
+        <textarea placeholder="Введите ваш ответ"></textarea>
+        <button class="submit-reply">Отправить</button>
+      </div>
+    </div>
+  </div>
 
-  document.getElementById('start').onclick = function (){
-     watchId = navigator.geolocation.watchPosition(function(position){
-      let latitude = position.coords.latitude
-      let longitude = position.coords.latitude
-      sir.textContent = "Широта: " + latitude
-      dol.textContent = "Широта: " + longitude
-     })
-    }
+  <script>
+    document.querySelectorAll('.reply-btn').forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const replyForm = this.nextElementSibling;
+        replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+      });
+    });
 
-     document.getElementById('stop').onclick = function (){
-      navigator.geolocation.clearWatch(watchId)
-      sir.innerHTML = "Широта: ";
-      dol.innerHTML = "Долгота: "
-  }
+    document.querySelectorAll('.submit-reply').forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const replyText = this.previousElementSibling.value;
+        if (replyText) {
+          const replyContainer = document.createElement('div');
+          replyContainer.classList.add('reply');
+          
+          const replyMessage = document.createElement('p');
+          replyMessage.textContent = replyText;
+          
+          replyContainer.appendChild(replyMessage);
+          
+          // Добавляем ответ под комментарий
+          this.closest('.comment').appendChild(replyContainer);
+          
+          // Очистить форму
+          this.previousElementSibling.value = '';
+          this.closest('.reply-form').style.display = 'none';
+        }
+      });
+    });
+  </script>
 
-</script>
 </body>
 </html>
