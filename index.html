@@ -6,16 +6,63 @@
   <title>Document</title>
 </head>
 <body>
-  
-  <iframe id="myFrame" srcdoc="<p id='text'>Привет из iframe!</p>"></iframe>
-  <button id="moveBtn">Перенести текст</button>
 
-
+  <style>
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+  50%  { transform: translateY(-100px); }
+  100% { transform: translateY(0); }
+    }
+  </style>
+  <div id="box" style="width: 150px; height: 150px; background-color: red;"></div>
+   
   <script>
- 
+function randomColor(){
+  const a = Math.floor(Math.random() *256)
+  const b = Math.floor(Math.random() * 256)
+  const c = Math.floor(Math.random() * 256)
+
+  return `rgb(${a},${b},${c})`
+}
+
+
+    const box = document.getElementById("box")
+    box.style.transition = "border-radius 2s ease, background-color 2s ease";
+    
+    box.addEventListener("click", () => {
+      let current = getComputedStyle(box).animationName
+
+      if(current === "none"){
+        
+        box.style.animationName = "bounce"
+        box.style.animationDuration = "1.5s"
+        box.style.animationIterationCount = "infinite"
+        
+        box.style.borderRadius = "100%"
+        colorInterval = setInterval(() => {
+      box.style.backgroundColor = randomColor();
+    }, 1500);
+      }
+      else{
+        
+   
+     
+
+        clearInterval(colorInterval);
+        colorInterval = null;
+
+    box.style.animationName = "none";
+    box.style.backgroundColor = "red";
+    box.style.borderRadius = "0";
+
+      }
+      
+
+
+    })
+
+    
   </script>
-
-
-<script src="assets/js/reference/reference.js"></script>
+  
 </body>
 </html>
