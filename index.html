@@ -3,68 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Комментарии</title>
+  <title>Document</title>
 </head>
 <body>
+  
+  <iframe id="myFrame" srcdoc="<p id='text'>Привет из iframe!</p>"></iframe>
+  <button id="moveBtn">Перенести текст</button>
 
-  <div class="comments">
-    <div class="comment">
-      <p>Комментарий 1</p>
-      <button class="reply-btn">Ответить</button>
-      <div class="reply-form" style="display: none;">
-        
-        <textarea placeholder="Введите ваш ответ"></textarea>
-        <button class="submit-reply">Отправить</button>
-      </div>
-    </div>
-    <div class="comment">
-      <p>Комментарий 2</p>
-      <button class="reply-btn">Ответить</button>
-      <div class="reply-form" style="display: none;">
-        <textarea placeholder="Введите ваш ответ"></textarea>
-        <button class="submit-reply">Отправить</button>
-      </div>
-    </div>
-    <div class="comment">
-      <p>Комментарий 3</p>
-      <button class="reply-btn">Ответить</button>
-      <div class="reply-form" style="display: none;">
-        <textarea placeholder="Введите ваш ответ"></textarea>
-        <button class="submit-reply">Отправить</button>
-      </div>
-    </div>
-  </div>
 
   <script>
-    document.querySelectorAll('.reply-btn').forEach((btn) => {
-      btn.addEventListener('click', function() {
-        const replyForm = this.nextElementSibling;
-        replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
-      });
-    });
-
-    document.querySelectorAll('.submit-reply').forEach((btn) => {
-      btn.addEventListener('click', function() {
-        const replyText = this.previousElementSibling.value;
-        if (replyText) {
-          const replyContainer = document.createElement('div');
-          replyContainer.classList.add('reply');
-          
-          const replyMessage = document.createElement('p');
-          replyMessage.textContent = replyText;
-          
-          replyContainer.appendChild(replyMessage);
-          
-          // Добавляем ответ под комментарий
-          this.closest('.comment').appendChild(replyContainer);
-          
-          // Очистить форму
-          this.previousElementSibling.value = '';
-          this.closest('.reply-form').style.display = 'none';
-        }
-      });
-    });
+ 
   </script>
 
+
+<script src="assets/js/reference/reference.js"></script>
 </body>
 </html>
