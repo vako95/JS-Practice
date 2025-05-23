@@ -1,67 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <style>
-#box{
-    width: 150px;
-    height: 150px;
-    background-color: red;
-}
+    <script>
+        const userInfo = {
+            name: "Vagif",
+            age: 30
+        };
 
-@keyframes bounce{
-    0%   { transform: translateY(0); }
-  50%  { transform: translateY(-100px); }
-  100% { transform: translateY(0); }
+        const userContacts = {
+            email: "vagif@example.com",
+            phone: "+994123456789"
+        };
 
-}
-    </style>
+        const userSettings = {
+            theme: "dark",
+            language: "az"
+        };
+
+        const test = Object.assign({},userInfo,userContacts,userSettings) 
+        console.log(test)
 
 
-
-
-    <div  id="box"></div>
-
-<script>
-    let box = document.getElementById("box")
-    let jupmp = false;
-    box.style.transition = "border-radius 2s ease, background-color 3s ease"
-    function color(){
-        const a = Math.floor(Math.random() * 256)
-        const b = Math.floor(Math.random() * 256)
-        const c = Math.floor(Math.random() * 256)
-        return `rgb(${a},${b},${c})`
-    }
-    box.addEventListener("click", () => {
-        const currentAnimtion = getComputedStyle(box).animationName
-
-        if(!jupmp){
-            box.style.animationName = "bounce"
-            box.style.animationDuration = '1.5s'
-            box.style.animationIterationCount = "infinite"
-            box.style.animationTimingFunction = "ease";
-            box.style.borderRadius = "50%"
-            jupmp = true;
-            colorInterval = setInterval(() => {
-                box.style.backgroundColor = color()
-            },1500)
-        }
-        else {
-      box.style.animationName = "none";
-      box.style.backgroundColor = "red";
-      jupmp = false;
-      box.style.animationName = "none";
-        box.style.backgroundColor = "red";
-        box.style.borderRadius = "0%";
-        clearInterval(colorInterval);
-    }
-    })
-</script>
+    </script>
 
 </body>
+
 </html>
